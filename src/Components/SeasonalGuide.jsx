@@ -1,0 +1,101 @@
+import React from "react";
+import { MdOutlineTipsAndUpdates } from "react-icons/md";
+import autumn from "../assets/Seasons/autumn.png";
+import spring from "../assets/Seasons/spring.png";
+import summer from "../assets/Seasons/summer.png";
+import winter from "../assets/Seasons/winter.png";
+
+const SeasonalGuide = () => {
+  return (
+    <div>
+      <h1 className="text-2xl lg:text-4xl lg:mt-20 font-semibold text-green-600 mt-10">
+        <MdOutlineTipsAndUpdates className="inline" /> Seasonal Plant Care Guide
+      </h1>
+      <p className="font-light text-slate-500 lg:text-lg mt-5">
+        Help your plants thrive year-round with seasonal tips tailored for every
+        climate shift.
+      </p>
+
+      {/* Cards */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 mt-10 gap-5">
+        {/* spring */}
+        <div className="card bg-base-100 shadow-lg p-5">
+          <figure>
+            <img
+              src={spring}
+              className="w-[30%]"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="font-semibold text-lg text-center text-green-600">
+             SPRING
+            </h2>
+            <p className="text-center text-slate-600">
+              Best time for repotting, pruning, and fertilizing as plants wake up.
+            </p>
+           
+          </div>
+        </div>
+
+        {/* summer */}
+        <div className="card bg-base-100 shadow-lg p-5">
+          <figure>
+            <img
+              src={summer}
+              className="w-[30%]"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="font-semibold text-lg text-center text-green-600">
+             SUMMER
+            </h2>
+            <p className="text-center text-slate-600">
+              Water more frequently, avoid direct harsh sunlight.
+            </p>
+           
+          </div>
+        </div>
+
+         {/* Autumn */}
+        <div className="card bg-base-100 shadow-lg p-5">
+          <figure>
+            <img
+              src={autumn}
+              className="w-[30%]"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="font-semibold text-lg text-center text-green-600">
+             AUTUMN
+            </h2>
+            <p className="text-center text-slate-600">
+              Begin reducing watering, check for leaf changes.
+            </p>
+           
+          </div>
+        </div>
+
+          {/* Winter */}
+        <div className="card bg-base-100 shadow-lg p-5">
+          <figure>
+            <img
+              src={winter}
+              className="w-[30%]"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="font-semibold text-lg text-center text-green-600">
+             WINTER
+            </h2>
+            <p className="text-center text-slate-600">
+              Move tropicals indoors, minimize watering, maximize sunlight.
+            </p>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SeasonalGuide;
