@@ -14,3 +14,4 @@ If you are developing a production application, we recommend using TypeScript wi
 
 
 npm install react-slick --save
+npm i cally
