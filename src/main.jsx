@@ -9,13 +9,15 @@ import {
 import MainLayout from './Layouts/MainLayout.jsx';
 import HomePage from './Pages/HomePage.jsx';
 import AuthProvider from './Context/AuthProvider.jsx';
+import AddNewPlant from './Components/AddNewPlant.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
     children:[
-      {index:true, element:<HomePage></HomePage>}
+      {index:true, element:<HomePage></HomePage>},
+      {path:'/addplant', element:<AddNewPlant></AddNewPlant>}
     ]
   },
   {
