@@ -1,7 +1,10 @@
-import React from "react";
+import React, { use } from "react";
 import { PiPlantBold } from "react-icons/pi";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
 const Navbar = () => {
+  const {user} = use(AuthContext);
+
   const links = (
     <>
       <NavLink to={`/`}>Home</NavLink>
@@ -55,6 +58,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end flex gap-3">
+          {user && user.name}
             <Link to={`/login`} className="btn bg-green-500 hover:bg-green-900 hover:text-white">Login</Link>
             <Link to={`/register`} className="btn bg-green-500 hover:bg-green-900 hover:text-white">Register</Link>
             
