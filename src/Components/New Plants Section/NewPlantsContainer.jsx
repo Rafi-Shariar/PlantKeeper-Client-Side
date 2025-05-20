@@ -12,10 +12,22 @@ const NewPlantsContainer = () => {
     fetch("http://localhost:3000/plants")
       .then((res) => res.json())
       .then((data) => {
-        setCurrentNewPlants(data);
+
+        const sortedData = data.sort((a,b) => {
+          return new Date(b.uploadData) - new Date(a.uploadData)
+        });
+
+
+        const recentPlants = sortedData.slice(0,6);
+        setCurrentNewPlants(recentPlants);
+
+
         setLoading(false);
       
       });
+
+  
+      
   }, []);
 
   return (

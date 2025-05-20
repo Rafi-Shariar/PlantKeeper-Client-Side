@@ -11,6 +11,7 @@ import HomePage from './Pages/HomePage.jsx';
 import AuthProvider from './Context/AuthProvider.jsx';
 import AddNewPlant from './Components/AddNewPlant.jsx';
 import DetailsPage from './Pages/DetailsPage.jsx';
+import AllPlantsPage from './Pages/AllPlantsPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
       {index:true, element:<HomePage></HomePage>},
       {path:'/addplant', element:<AddNewPlant></AddNewPlant>},
       {path:'/details/:id', element:<DetailsPage></DetailsPage>, 
-        loader:({params})=>fetch(`http://localhost:3000/plants/${params.id}`)}
+        loader:({params})=>fetch(`http://localhost:3000/plants/${params.id}`)},
+      {path:'/allplants', element:<AllPlantsPage></AllPlantsPage>}
     ]
   },
   
