@@ -5,7 +5,7 @@ import { PiPassword } from "react-icons/pi";
 import { AuthContext } from "../../Context/AuthContext";
 import Swal from "sweetalert2";
 const Register = () => {
-  const { createUser } = use(AuthContext);
+  const { createUser,setUser } = use(AuthContext);
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ const Register = () => {
           photourl,
           email,
         };
-
+      
         fetch("http://localhost:3000/users", {
           method: "POST",
           headers: {
@@ -39,6 +39,8 @@ const Register = () => {
               draggable: true,
             });
           });
+
+          setUser({name,photourl,email});
       })
       .catch(() => {
         Swal.fire({

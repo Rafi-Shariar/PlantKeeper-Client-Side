@@ -1,9 +1,19 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import { PiPlantBold } from "react-icons/pi";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 const Navbar = () => {
-  const {user} = use(AuthContext);
+  const { user } = use(AuthContext);
+  const [activeUser, setActiveUser] = useState();
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/users/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setActiveUser(data);
+        console.log(activeUser);
+      });
+  }, [user]);
 
   const links = (
     <>
@@ -44,7 +54,7 @@ const Navbar = () => {
             </ul>
           </div>
           <a className="btn btn-ghost text-xl md:text-2xl">
-            <PiPlantBold className="text-green-600 text-3xl" />
+            <PiPlantBold className="text-green-600 text-3xl hidden md:inline" />
             Plant<span className="-ml-1 text-green-600">Keeper</span>
           </a>
         </div>
@@ -54,15 +64,41 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 flex flex- gap-5 text-lg">
             {links}
           </ul>
-          
         </div>
 
         <div className="navbar-end flex gap-3">
-          {user && user.name}
-            <Link to={`/login`} className="btn bg-green-500 hover:bg-green-900 hover:text-white">Login</Link>
-            <Link to={`/register`} className="btn bg-green-500 hover:bg-green-900 hover:text-white">Register</Link>
-            
-          </div>
+          {user ? (
+            <>
+              <div
+                className="avatar tooltip tooltip-left"
+                data-tip={`${activeUser?.name}`}
+              >
+                <div className="w-12 rounded-full">
+                  <img src={activeUser?.photourl} />
+                </div>
+              </div>
+              <button className="btn bg-green-500 hover:bg-green-900 hover:text-white">
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              {" "}
+              <Link
+                to={`/login`}
+                className="btn bg-green-500 hover:bg-green-900 hover:text-white"
+              >
+                Login
+              </Link>
+              <Link
+                to={`/register`}
+                className="btn bg-green-500 hover:bg-green-900 hover:text-white"
+              >
+                Register
+              </Link>{" "}
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
