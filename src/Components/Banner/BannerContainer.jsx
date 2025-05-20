@@ -19,7 +19,7 @@ const BannerContainer = () => {
   };
 
   return (
-    <div className="mt-10 ">
+    <div className="mt-10 overflow-hidden">
       <Slider {...settings}>
         <div><SlideOne /></div>
         <div><SlideTwo /></div>
