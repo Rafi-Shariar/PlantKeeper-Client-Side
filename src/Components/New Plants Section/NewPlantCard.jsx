@@ -1,7 +1,8 @@
 import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { Link } from "react-router";
 const NewPlantCard = ({ plant }) => {
-  const { image, plantname, category, uploadData, carelevel } = plant;
+  const {_id, image, plantname, category, uploadData, carelevel } = plant;
 
   return (
     <div className=" bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -20,9 +21,9 @@ const NewPlantCard = ({ plant }) => {
         </p>
         <div className="flex items-center justify-between pt-3">
           <span className="text-xs text-gray-400">Uploaded: {uploadData}</span>
-          <button className="btn  bg-green-500 hover:bg-green-700 text-white rounded-md px-4 py-1"><FaExternalLinkAlt />
+          <Link to={`/details/${_id}`} className="btn  bg-green-500 hover:bg-green-700 text-white rounded-md px-4 py-1"><FaExternalLinkAlt />
             Explore
-          </button>
+          </Link>
         </div>
       </div>
     </div>
