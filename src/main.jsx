@@ -11,6 +11,7 @@ import DetailsPage from "./Pages/DetailsPage.jsx";
 import AllPlantsPage from "./Pages/AllPlantsPage.jsx";
 import Login from "./Components/SinginOut/Login.jsx";
 import Register from "./Components/SinginOut/Register.jsx";
+import MyPlantsPage from "./Pages/MyPlantsPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path:"/myplants",
+        element:<MyPlantsPage></MyPlantsPage>
+      }
     ],
   },
   

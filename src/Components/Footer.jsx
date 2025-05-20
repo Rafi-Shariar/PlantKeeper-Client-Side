@@ -11,7 +11,7 @@ const Footer = () => {
         <div>
           <div className='flex items-center gap-2'>
             <img src={logo} alt="" className='w-[10%]'/>
-            <h2 className="text-3xl font-bold"> PlantPal</h2>
+            <h2 className="text-3xl font-bold"> PlanKeeper</h2>
           </div>
           <p>Your trusted companion for smart plant care and growth tracking.</p>
         </div>
