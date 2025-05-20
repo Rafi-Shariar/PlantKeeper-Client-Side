@@ -14,6 +14,12 @@ const NewPlantsContainer = () => {
       .then((data) => {
         setCurrentNewPlants(data);
         setLoading(false);
+        
+
+        if(currentNewPlants.length > 6){
+          const slicedCurrentplants = currentNewPlants.slice(0,6);
+          setCurrentNewPlants(slicedCurrentplants);
+        }
       });
   }, []);
 
