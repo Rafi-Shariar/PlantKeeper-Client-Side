@@ -16,7 +16,7 @@ const Register = () => {
 
     //creating User
     createUser(email, password)
-      .then(() => {
+      .then((userCredential) => {
         //adding user to DB
         const newUser = {
           name,
@@ -40,7 +40,9 @@ const Register = () => {
             });
           });
 
-          setUser({name,photourl,email});
+          const user = userCredential.user;
+
+          setUser(user);
       })
       .catch(() => {
         Swal.fire({

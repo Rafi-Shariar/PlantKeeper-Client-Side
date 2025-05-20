@@ -3,7 +3,7 @@ import { PiPlantBold } from "react-icons/pi";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 const Navbar = () => {
-  const { user } = use(AuthContext);
+  const { user,logOutUser,loading } = use(AuthContext);
   const [activeUser, setActiveUser] = useState();
 
   useEffect(() => {
@@ -11,9 +11,16 @@ const Navbar = () => {
       .then((res) => res.json())
       .then((data) => {
         setActiveUser(data);
-        console.log(activeUser);
       });
-  }, [user]);
+  }, [user,loading]);
+
+  const handleLogOut=e=>{
+    e.preventDefault();
+    logOutUser()
+    .then()
+    .catch()
+
+  }
 
   const links = (
     <>
@@ -67,7 +74,8 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end flex gap-3">
-          {user ? (
+          {
+            loading ? (<span className="loading loading-dots loading-md"></span>) : (<>{user ? (
             <>
               <div
                 className="avatar tooltip tooltip-left"
@@ -77,7 +85,7 @@ const Navbar = () => {
                   <img src={activeUser?.photourl} />
                 </div>
               </div>
-              <button className="btn bg-green-500 hover:bg-green-900 hover:text-white">
+              <button onClick={handleLogOut} className="btn bg-green-500 hover:bg-green-900 hover:text-white">
                 Logout
               </button>
             </>
@@ -97,7 +105,9 @@ const Navbar = () => {
                 Register
               </Link>{" "}
             </>
-          )}
+          )}</>)
+          }
+          
         </div>
       </div>
     </div>
