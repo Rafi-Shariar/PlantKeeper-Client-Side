@@ -1,6 +1,7 @@
 import React from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { PiPassword } from "react-icons/pi";
+import { Link } from "react-router";
 const Login = () => {
 
     const handleLogin = e =>{
@@ -58,10 +59,10 @@ const Login = () => {
 
                 <div>
                   <a className="link link-hover">
-                    Don't? have an account ?{" "}
-                    <span className="font-semibold text-green-700">
+                    Don't have an account ?{" "}
+                    <Link to={`/register`} className="font-semibold text-green-700">
                       Register
-                    </span>
+                    </Link>
                   </a>
                 </div>
                 <button type="submit" className="btn  mt-4 bg-green-600 text-white hover:bg-green-900">
