@@ -3,6 +3,7 @@ import { AuthContext } from "../Context/AuthContext";
 import LoadingSkeleton from "../Components/Loading/LoadingSkeleton";
 import LoadingContainer from "../Components/Loading/LoadingContainer";
 import MyPlantCard from "../Components/MyPlantCard";
+import NoPlants from "../Components/NoPlants";
 
 const MyPlantsPage = () => {
   const { user , loading } = use(AuthContext);
@@ -41,7 +42,11 @@ const MyPlantsPage = () => {
       <div>
         {
             loading? (<LoadingContainer></LoadingContainer>) : (<>
-            <div className="grid grid-cols-1 gap-7 mt-10">
+             
+             {
+               myplants.length == 0 ? (<NoPlants></NoPlants>) :
+                (<> 
+               <div className="grid grid-cols-1 gap-7 mt-10">
                  {
                 
                 myplants.map(plant => <MyPlantCard key={plant._id} plant={plant}></MyPlantCard>)
@@ -49,6 +54,8 @@ const MyPlantsPage = () => {
             }
 
             </div>
+            </>)
+             }
            </>)
         }
 
@@ -58,3 +65,5 @@ const MyPlantsPage = () => {
 };
 
 export default MyPlantsPage;
+
+{/*  */}
