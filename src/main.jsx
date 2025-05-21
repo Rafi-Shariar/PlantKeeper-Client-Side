@@ -13,6 +13,7 @@ import Login from "./Components/SinginOut/Login.jsx";
 import Register from "./Components/SinginOut/Register.jsx";
 import MyPlantsPage from "./Pages/MyPlantsPage.jsx";
 import PageNotFound from "./Components/PageNotFound.jsx";
+import UpdatePage from "./Pages/UpdatePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
       {
         path:"/myplants",
         element:<MyPlantsPage></MyPlantsPage>
+      },
+      {
+        path:'/update/:id',
+        element:<UpdatePage></UpdatePage>,
+        loader: ({params})=>fetch(`http://localhost:3000/plants/${params.id}`)
       }
     ],
   },
