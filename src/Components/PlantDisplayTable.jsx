@@ -6,7 +6,7 @@ const PlantDisplayTable = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/plantsorted")
+    fetch("https://a10-server-beryl.vercel.app/plantsorted")
       .then((res) => res.json())
       .then((data) => {
         setPlantsData(data);

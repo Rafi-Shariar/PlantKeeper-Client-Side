@@ -9,7 +9,7 @@ const NewPlantsContainer = () => {
 
   // loading recently added plants
   useEffect(() => {
-    fetch("http://localhost:3000/plants")
+    fetch("https://a10-server-beryl.vercel.app/plants")
       .then((res) => res.json())
       .then((data) => {
 

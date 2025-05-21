@@ -11,7 +11,7 @@ const MyPlantsPage = () => {
   const [isDeleted, setIsDeleted] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3000/plants")
+    fetch("https://a10-server-beryl.vercel.app/plants")
       .then((res) => res.json())
       .then((data) => {
         const userEmail = user?.email;

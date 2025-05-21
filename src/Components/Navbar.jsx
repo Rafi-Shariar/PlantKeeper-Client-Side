@@ -7,7 +7,7 @@ const Navbar = () => {
   const [activeUser, setActiveUser] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/users/${user?.email}`)
+    fetch(`https://a10-server-beryl.vercel.app/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setActiveUser(data);

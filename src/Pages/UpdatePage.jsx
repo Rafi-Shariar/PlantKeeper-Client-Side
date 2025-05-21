@@ -25,7 +25,7 @@ const UpdatePage = () => {
     const UpdatedPlantData = Object.fromEntries(formData.entries());
     const newUpdatedPlant = { ...UpdatedPlantData, uploadData };
 
-    fetch(`http://localhost:3000/update/${data?._id}`, {
+    fetch(`https://a10-server-beryl.vercel.app/update/${data?._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -24,7 +24,7 @@ const Register = () => {
           email,
         };
       
-        fetch("http://localhost:3000/users", {
+        fetch("https://a10-server-beryl.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

@@ -30,7 +30,7 @@ const MyPlantCard = ({ plant,setIsDeleted }) => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        fetch(`http://localhost:3000/plants/${_id}`,{
+        fetch(`https://a10-server-beryl.vercel.app/plants/${_id}`,{
           method:'DELETE'
 
         })

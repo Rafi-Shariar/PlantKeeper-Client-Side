@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         path: "/details/:id",
         element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/plants/${params.id}`),
+          fetch(`https://a10-server-beryl.vercel.app/plants/${params.id}`),
       },
       { path: "/allplants", element: <AllPlantsPage></AllPlantsPage> },
       {
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path:'/update/:id',
         element:<UpdatePage></UpdatePage>,
-        loader: ({params})=>fetch(`http://localhost:3000/plants/${params.id}`)
+        loader: ({params})=>fetch(`https://a10-server-beryl.vercel.app/plants/${params.id}`)
       }
     ],
   },

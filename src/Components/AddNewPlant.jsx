@@ -13,7 +13,7 @@ const AddNewPlant = () => {
     const newPlantData = { ...plantData, uploadData };
 
     //sending data to DB
-    fetch("http://localhost:3000/plants", {
+    fetch("https://a10-server-beryl.vercel.app/plants", {
       method: "POST",
       headers: {
         "content-type": "application/json",
