@@ -3,7 +3,7 @@ import { FiExternalLink } from "react-icons/fi";
 import { Link } from 'react-router';
 const TableRow = ({plant}) => {
 
-    const {_id,image,plantname,category,carelevel} = plant;
+    const {_id,image,plantname,category,nextwaterdate} = plant;
     return (
         
              <tr>
@@ -27,7 +27,7 @@ const TableRow = ({plant}) => {
                 
               </td>
               <td>{category}</td>
-              <td>{carelevel}</td>
+              <td>{nextwaterdate}</td>
 
               <td>
                 <Link to={`/details/${_id}`} className="btn bg btn-circle bg-green-600 text-2xl text-white  hover:bg-green-900"><FiExternalLink /></Link>

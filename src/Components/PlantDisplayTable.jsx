@@ -24,7 +24,7 @@ const PlantDisplayTable = () => {
               <th></th>
               <th>Plant Name</th>
               <th>Category</th>
-              <th>Care Level</th>
+              <th>Next Watering Date</th>
               <th>Explore</th>
             </tr>
           </thead>
