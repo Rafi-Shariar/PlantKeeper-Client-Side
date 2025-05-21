@@ -1,11 +1,12 @@
 import React from "react";
-import { MdOutlineHealthAndSafety,MdOutlineEdit } from "react-icons/md";
+import { MdOutlineHealthAndSafety, MdOutlineEdit } from "react-icons/md";
 import { FaVoteYea } from "react-icons/fa";
 import { IoIosWater } from "react-icons/io";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { Link } from "react-router";
-const MyPlantCard = ({ plant }) => {
+import Swal from "sweetalert2";
+const MyPlantCard = ({ plant,setIsDeleted }) => {
   const {
     _id,
     image,
@@ -16,6 +17,38 @@ const MyPlantCard = ({ plant }) => {
     nextwaterdate,
     healthstatus,
   } = plant;
+
+  const handleDelete = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        fetch(`http://localhost:3000/plants/${_id}`,{
+          method:'DELETE'
+
+        })
+        .then( res => res.json())
+        .then( ()=>{
+          setIsDeleted(true);
+        })
+
+
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      }
+    });
+  };
+
   return (
     <div className="shadow-lg rounded-2xl p-5 max-w-4xl mx-auto">
       <div className="flex gap-5 items-center">
@@ -45,19 +78,17 @@ const MyPlantCard = ({ plant }) => {
 
           <h1 className="text-xs lg:text-lg">
             <IoIosWater className="inline mr-2 text-blue-600" />
-            Watering Frequency: {" "}
+            Watering Frequency:{" "}
             <span className="font-light">{waterfrequency}</span>
           </h1>
 
           <div className="mt-3">
             <h1 className="text-xs lg:text-lg badge bg-green-100">
-              
-              Last Water Date: {" "}
+              Last Water Date:{" "}
               <span className="font-light">{lastwaterdate}</span>
             </h1>
 
             <h1 className="text-xs lg:text-lg badge bg-green-100 lg:ml-10 mt-2 md:mt-0">
-              
               Next Watering Date:{" "}
               <span className="font-light">{nextwaterdate}</span>
             </h1>
@@ -66,14 +97,26 @@ const MyPlantCard = ({ plant }) => {
 
         {/* Buttons */}
         <div className="grid gap-3">
-            <Link to={`/details/${_id}`} className="btn btn-circle text-xl bg-green-600 text-white"><FaExternalLinkAlt /></Link>
+          <Link
+            to={`/details/${_id}`}
+            className="btn btn-circle text-xl bg-green-600 text-white"
+          >
+            <FaExternalLinkAlt />
+          </Link>
 
-            <Link to={`/update/${_id}`} className="btn btn-circle text-xl text-white bg-blue-400"><MdOutlineEdit /></Link>
+          <Link
+            to={`/update/${_id}`}
+            className="btn btn-circle text-xl text-white bg-blue-400"
+          >
+            <MdOutlineEdit />
+          </Link>
 
-            <button className="btn btn-circle text-xl text-white bg-red-400"><RiDeleteBin6Fill /></button>
-
-
-
+          <button
+            onClick={handleDelete}
+            className="btn btn-circle text-xl text-white bg-red-400"
+          >
+            <RiDeleteBin6Fill />
+          </button>
         </div>
       </div>
     </div>

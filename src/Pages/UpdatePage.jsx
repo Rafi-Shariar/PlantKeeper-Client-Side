@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 

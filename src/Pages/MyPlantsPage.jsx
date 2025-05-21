@@ -6,19 +6,20 @@ import MyPlantCard from "../Components/MyPlantCard";
 import NoPlants from "../Components/NoPlants";
 
 const MyPlantsPage = () => {
-  const { user , loading } = use(AuthContext);
+  const { user, loading } = use(AuthContext);
   const [myplants, setMyplants] = useState([]);
+  const [isDeleted, setIsDeleted] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:3000/plants")
       .then((res) => res.json())
       .then((data) => {
-            const userEmail = user?.email;
-            const filteredPlants = data.filter(plant => plant.email == userEmail);
-            setMyplants(filteredPlants);
-        
+        const userEmail = user?.email;
+        const filteredPlants = data.filter((plant) => plant.email == userEmail);
+        setMyplants(filteredPlants);
+        setIsDeleted(false);
       });
-  }, [user,loading]);
+  }, [user, loading,isDeleted]);
 
   return (
     <div className="">
@@ -35,30 +36,22 @@ const MyPlantsPage = () => {
       </div>
 
       <div className="flex w-full flex-col">
-  <div className="divider"></div>
-</div>
+        <div className="divider"></div>
+      </div>
 
       {/* My Plants */}
       <div>
-        {
-            loading? (<LoadingContainer></LoadingContainer>) : (<>
-             
-             {
-               myplants.length == 0 ? (<NoPlants></NoPlants>) :
-                (<> 
-               <div className="grid grid-cols-1 gap-7 mt-10">
-                 {
-                
-                myplants.map(plant => <MyPlantCard key={plant._id} plant={plant}></MyPlantCard>)
-
-            }
-
-            </div>
-            </>)
-             }
-           </>)
-        }
-
+        {loading ? (
+         <LoadingContainer></LoadingContainer>
+        ) : myplants.length == 0 ? (
+          <NoPlants></NoPlants>
+        ) : (
+          <div className="grid grid-cols-1 gap-7 mt-10">
+            {myplants.map((plant) => (
+              <MyPlantCard key={plant._id} plant={plant} setIsDeleted={setIsDeleted}/>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -66,4 +59,6 @@ const MyPlantsPage = () => {
 
 export default MyPlantsPage;
 
-{/*  */}
+{
+  /*  */
+}
