@@ -13,6 +13,7 @@ const AuthProvider = ({children}) => {
 
     //Create User
     const createUser = (email,password) =>{
+        setLoading(true);
         return createUserWithEmailAndPassword(auth,email,password);
     }
 
@@ -35,11 +36,13 @@ const AuthProvider = ({children}) => {
 
     //Log In User
     const logInUser = (email,password)=>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth,email,password);
     }
 
     //Google SignIn
     const GoogleLogIn = ()=>{
+        setLoading(true)
         return signInWithPopup(auth,provider);
     }
 

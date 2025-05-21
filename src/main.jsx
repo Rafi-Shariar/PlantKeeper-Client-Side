@@ -14,6 +14,7 @@ import Register from "./Components/SinginOut/Register.jsx";
 import MyPlantsPage from "./Pages/MyPlantsPage.jsx";
 import PageNotFound from "./Components/PageNotFound.jsx";
 import UpdatePage from "./Pages/UpdatePage.jsx";
+import PrivateRoute from "./Provider/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,10 +22,10 @@ const router = createBrowserRouter([
     element: <MainLayout></MainLayout>,
     children: [
       { index: true, element: <HomePage></HomePage> },
-      { path: "/addplant", element: <AddNewPlant></AddNewPlant> },
+      { path: "/addplant", element: <PrivateRoute><AddNewPlant></AddNewPlant></PrivateRoute> },
       {
         path: "/details/:id",
-        element: <DetailsPage></DetailsPage>,
+        element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/plants/${params.id}`),
       },
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/myplants",
-        element:<MyPlantsPage></MyPlantsPage>
+        element:<PrivateRoute><MyPlantsPage></MyPlantsPage></PrivateRoute>
       },
       {
         path:'/update/:id',
