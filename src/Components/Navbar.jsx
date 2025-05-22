@@ -2,9 +2,13 @@ import React, { use, useEffect, useState } from "react";
 import { PiPlantBold } from "react-icons/pi";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import { Tooltip } from 'react-tooltip'
+
 const Navbar = () => {
   const { user, logOutUser, loading } = use(AuthContext);
   const [activeUser, setActiveUser] = useState();
+
+
 
   useEffect(() => {
     fetch(`https://a10-server-beryl.vercel.app/users/${user?.email}`)
@@ -59,7 +63,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="sticky top-0 z-40 bg-white">
+    <div className="sticky top-0 z-40 bg-white dark:bg-gray-700">
       <div className="navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
@@ -108,11 +112,13 @@ const Navbar = () => {
             <>
               {user ? (
                 <>
+
                   <div
-                    className="avatar tooltip tooltip-left"
-                    data-tip={`${activeUser?.name}`}
-                  >
+                    className="avatar"
+                    data-tooltip-id="my-tooltip" data-tooltip-content={`${activeUser?.name}`}>
+
                     <div className="w-12 rounded-full">
+                      <Tooltip id="my-tooltip" place={'left'}/>
                       <img src={activeUser?.photourl} />
                     </div>
                   </div>

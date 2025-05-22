@@ -4,10 +4,12 @@ import autumn from "../assets/Seasons/autumn.png";
 import spring from "../assets/Seasons/spring.png";
 import summer from "../assets/Seasons/summer.png";
 import winter from "../assets/Seasons/winter.png";
-
+import Lottie from "lottie-react";
+import lottieAnimation from '../assets/Lottie/Animation - 1747893608371.json';
 const SeasonalGuide = () => {
   return (
     <div>
+      
       <h1 className="text-2xl lg:text-4xl lg:mt-20 font-semibold text-green-600 mt-10">
         <MdOutlineTipsAndUpdates className="inline" /> Seasonal Plant Care Guide
       </h1>
@@ -16,8 +18,16 @@ const SeasonalGuide = () => {
         climate shift.
       </p>
 
-      {/* Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 mt-10 gap-5">
+     
+
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
+        <div className="w-1/2 mx-auto">
+        <Lottie animationData={lottieAnimation} loop={true} />
+      </div>
+
+        
+         {/* Cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-2 mt-10 gap-5">
         {/* spring */}
         <div className="card bg-base-100 shadow-lg p-5">
           <figure>
@@ -94,6 +104,9 @@ const SeasonalGuide = () => {
           </div>
         </div>
       </div>
+
+      </div>
+    
     </div>
   );
 };
