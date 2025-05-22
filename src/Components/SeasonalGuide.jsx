@@ -19,7 +19,7 @@ const SeasonalGuide = () => {
       </p>
 
      
-
+      {/* Contents */}
       <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
         <div className="w-1/2 mx-auto">
         <Lottie animationData={lottieAnimation} loop={true} />
