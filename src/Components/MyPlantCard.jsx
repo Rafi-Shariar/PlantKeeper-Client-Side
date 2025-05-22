@@ -75,18 +75,18 @@ const MyPlantCard = ({ plant, setIsDeleted }) => {
           </h1>
 
           <h1 className="text-xs lg:text-lg">
-            <IoIosWater className="inline mr-2 text-blue-600" />
+            <IoIosWater className="inline mr-2 text-blue-600 " />
             Watering Frequency:{" "}
             <span className="font-light">{waterfrequency}</span>
           </h1>
 
           <div className="mt-3 flex flex-col">
-            <h1 className="text-xs lg:text-lg badge bg-green-100">
+            <h1 className="text-xs lg:text-lg badge bg-green-100 bg-green-100 text-green-800 dark:bg-green-600 dark:text-green-100">
               Last Water Date:{" "}
               <span className="font-light">{lastwaterdate}</span>
             </h1>
 
-            <h1 className="text-xs lg:text-lg badge bg-green-100 mt-2">
+            <h1 className="text-xs lg:text-lg badge bg-green-100 mt-2 bg-green-100 text-green-800 dark:bg-green-600 dark:text-green-100">
               Next Watering Date:{" "}
               <span className="font-light">{nextwaterdate}</span>
             </h1>
