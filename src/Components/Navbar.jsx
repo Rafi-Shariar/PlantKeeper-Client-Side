@@ -3,7 +3,7 @@ import { PiPlantBold } from "react-icons/pi";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 const Navbar = () => {
-  const { user,logOutUser,loading } = use(AuthContext);
+  const { user, logOutUser, loading } = use(AuthContext);
   const [activeUser, setActiveUser] = useState();
 
   useEffect(() => {
@@ -12,15 +12,12 @@ const Navbar = () => {
       .then((data) => {
         setActiveUser(data);
       });
-  }, [user,loading]);
+  }, [user, loading]);
 
-  const handleLogOut=e=>{
+  const handleLogOut = (e) => {
     e.preventDefault();
-    logOutUser()
-    .then()
-    .catch()
-
-  }
+    logOutUser().then().catch();
+  };
 
   const links = (
     <>
@@ -74,40 +71,46 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end flex gap-3">
-          {
-            loading ? (<span className="loading loading-dots loading-md"></span>) : (<>{user ? (
-            <>
-              <div
-                className="avatar tooltip tooltip-left"
-                data-tip={`${activeUser?.name}`}
-              >
-                <div className="w-12 rounded-full">
-                  <img src={activeUser?.photourl} />
-                </div>
-              </div>
-              <button onClick={handleLogOut} className="btn bg-green-500 hover:bg-green-900 hover:text-white">
-                Logout
-              </button>
-            </>
+          {loading ? (
+            <span className="loading loading-dots loading-md"></span>
           ) : (
             <>
-              {" "}
-              <Link
-                to={`/login`}
-                className="btn bg-green-500 hover:bg-green-900 hover:text-white"
-              >
-                Login
-              </Link>
-              <Link
-                to={`/register`}
-                className="btn bg-green-500 hover:bg-green-900 hover:text-white"
-              >
-                Register
-              </Link>{" "}
+              {user ? (
+                <>
+                  <div
+                    className="avatar tooltip tooltip-left"
+                    data-tip={`${activeUser?.name}`}
+                  >
+                    <div className="w-12 rounded-full">
+                      <img src={activeUser?.photourl} />
+                    </div>
+                  </div>
+                  <button
+                    onClick={handleLogOut}
+                    className="btn bg-green-500 hover:bg-green-900 hover:text-white"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <Link
+                    to={`/login`}
+                    className="btn bg-green-500 hover:bg-green-900 hover:text-white"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to={`/register`}
+                    className="btn bg-green-500 hover:bg-green-900 hover:text-white"
+                  >
+                    Register
+                  </Link>{" "}
+                </>
+              )}
             </>
-          )}</>)
-          }
-          
+          )}
         </div>
       </div>
     </div>

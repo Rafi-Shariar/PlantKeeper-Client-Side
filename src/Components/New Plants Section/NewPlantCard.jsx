@@ -16,9 +16,9 @@ const NewPlantCard = ({ plant }) => {
       <div className="p-5 space-y-2">
         <h2 className="text-xl font-semibold text-green-700">{plantname}</h2>
 
-        <p className="text-sm text-gray-500 flex md:flex-col md:gap-3 lg:flex-row justify-between border-b pb-5 border-green-600">
+        <p className="text-sm text-gray-500 flex-col gap-2 md:gap-3 lg:flex-row justify-between border-b pb-5 border-green-600">
           <span className="capitalize badge badge-md bg-green-100"><span className="font-semibold text-green-800">CATEGORY:</span>{category}</span> 
-          <span className="capitalize badge badge-md bg-green-100"><span className="font-semibold">CARE LEVEL:</span>{carelevel}</span> 
+          <span className="capitalize badge badge-md bg-green-100 mt-2 lg:mt-0"><span className="font-semibold">CARE LEVEL:</span>{carelevel}</span> 
         </p>
         <div className="flex items-center justify-between pt-3">
           <span className="text-xs text-gray-400">Uploaded: {uploadData}</span>

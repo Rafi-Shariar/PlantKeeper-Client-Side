@@ -6,7 +6,8 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
-const MyPlantCard = ({ plant,setIsDeleted }) => {
+import { FaHandHoldingWater } from "react-icons/fa";
+const MyPlantCard = ({ plant, setIsDeleted }) => {
   const {
     _id,
     image,
@@ -29,16 +30,13 @@ const MyPlantCard = ({ plant,setIsDeleted }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-
-        fetch(`https://a10-server-beryl.vercel.app/plants/${_id}`,{
-          method:'DELETE'
-
+        fetch(`https://a10-server-beryl.vercel.app/plants/${_id}`, {
+          method: "DELETE",
         })
-        .then( res => res.json())
-        .then( ()=>{
-          setIsDeleted(true);
-        })
-
+          .then((res) => res.json())
+          .then(() => {
+            setIsDeleted(true);
+          });
 
         Swal.fire({
           title: "Deleted!",
@@ -51,17 +49,17 @@ const MyPlantCard = ({ plant,setIsDeleted }) => {
 
   return (
     <div className="shadow-lg rounded-2xl p-5 max-w-4xl mx-auto">
-      <div className="flex gap-5 items-center">
+      <div className="grid lg:grid-cols-4 gap-5 items-center">
         <div>
           <img
             src={image}
             alt=""
-            className="w-30 h-30 lg:w-50 lg:h-50 max-w-sm rounded-xl shadow-lg object-cover"
+            className="w-40 h-30 lg:w-50 lg:h-55 max-w-sm rounded-xl shadow-lg object-cover"
           />
         </div>
 
         {/* Details */}
-        <div className="grid gap-1">
+        <div className="grid gap-1 lg:col-span-2">
           <h1 className="text-lg lg:text-3xl font-semibold text-green-600">
             {plantname}
           </h1>
@@ -82,21 +80,24 @@ const MyPlantCard = ({ plant,setIsDeleted }) => {
             <span className="font-light">{waterfrequency}</span>
           </h1>
 
-          <div className="mt-3">
+          <div className="mt-3 flex flex-col">
             <h1 className="text-xs lg:text-lg badge bg-green-100">
               Last Water Date:{" "}
               <span className="font-light">{lastwaterdate}</span>
             </h1>
 
-            <h1 className="text-xs lg:text-lg badge bg-green-100 lg:ml-10 mt-2 md:mt-0">
+            <h1 className="text-xs lg:text-lg badge bg-green-100 mt-2">
               Next Watering Date:{" "}
               <span className="font-light">{nextwaterdate}</span>
             </h1>
+
+
+       
           </div>
         </div>
 
         {/* Buttons */}
-        <div className="grid gap-3">
+        <div className="grid grid-cols-3 lg:grid-cols-1 gap-3 justify-items-center">
           <Link
             to={`/details/${_id}`}
             className="btn btn-circle text-xl bg-green-600 text-white"

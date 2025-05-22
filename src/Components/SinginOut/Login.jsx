@@ -41,7 +41,6 @@ const Login = () => {
     GoogleLogIn()
     .then((result)=>{
       const loggedUser = result.user;
-      console.log('logged', loggedUser);
       
       
       const newUser = {
