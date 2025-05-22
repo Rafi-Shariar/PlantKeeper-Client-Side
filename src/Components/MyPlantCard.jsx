@@ -48,7 +48,7 @@ const MyPlantCard = ({ plant, setIsDeleted }) => {
   };
 
   return (
-    <div className="shadow-lg rounded-2xl p-5 max-w-4xl mx-auto">
+    <div className="shadow-lg rounded-2xl p-5 max-w-4xl mx-auto md:min-w-128">
       <div className="grid lg:grid-cols-4 gap-5 items-center">
         <div>
           <img

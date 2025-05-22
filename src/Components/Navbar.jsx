@@ -25,6 +25,37 @@ const Navbar = () => {
       <NavLink to={`/allplants`}>All Plants</NavLink>
       <NavLink to={`/addplant`}>Add Plant</NavLink>
       <NavLink to={`/myplants`}>My Plants</NavLink>
+
+      <div className="mt-2 lg:hidden">
+        {user ? (
+                <>
+                  <button
+                    onClick={handleLogOut}
+                    className="btn bg-green-500 hover:bg-green-900 hover:text-white  "
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <Link
+                    to={`/login`}
+                    className="btn bg-green-500 hover:bg-green-900 hover:text-white"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to={`/register`}
+                    className="btn bg-green-500 hover:bg-green-900 hover:text-white"
+                  >
+                    Register
+                  </Link>{" "}
+                </>
+              )}
+
+
+      </div>
     </>
   );
   return (
@@ -87,14 +118,15 @@ const Navbar = () => {
                   </div>
                   <button
                     onClick={handleLogOut}
-                    className="btn bg-green-500 hover:bg-green-900 hover:text-white"
+                    className="btn bg-green-500 hover:bg-green-900 hover:text-white hidden lg:inline"
                   >
                     Logout
                   </button>
                 </>
               ) : (
                 <>
-                  {" "}
+               <div className="hidden lg:inline">
+                   {" "}
                   <Link
                     to={`/login`}
                     className="btn bg-green-500 hover:bg-green-900 hover:text-white"
@@ -107,6 +139,7 @@ const Navbar = () => {
                   >
                     Register
                   </Link>{" "}
+               </div>
                 </>
               )}
             </>
