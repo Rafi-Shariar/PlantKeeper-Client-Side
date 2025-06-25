@@ -19,7 +19,7 @@ const BannerContainer = () => {
   };
 
   return (
-    <div className="mt-10 overflow-hidden">
+    <div className="mt-10 p-2 overflow-hidden lg:h-[500px]">
       <Slider {...settings}>
         <div><SlideOne /></div>
         <div><SlideTwo /></div>
