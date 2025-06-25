@@ -4,16 +4,16 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #0e962c;
+  --color-primary: #116423;
   --color-secondary: #7cec26;
-  --color-base-200:#589350;
+  --color-base-200:#f0b41a;
 }
 
 *{
     font-family: "Urbanist", sans-serif;
 }
 .active{
-    color: #589350;
+    color: #f0b41a;
     text-decoration: underline;
     font-weight: 500;
 }

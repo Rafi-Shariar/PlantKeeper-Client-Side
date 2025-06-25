@@ -78,7 +78,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="sticky top-0 z-40 bg-secondary">
+    <div className="sticky top-0 z-40 bg-primary">
       <div className="navbar max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -108,14 +108,14 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to={'/'} className="text-xl md:text-2xl flex items-center">
-            <PiPlantBold className="text-primary text-4xl hidden md:inline" />
-            <h1 className="font-semibold mt-2 ml-1"> Plant<span className="text-green-700">Keeper</span></h1>
+            <PiPlantBold className="text-secondary text-4xl hidden md:inline" />
+            <h1 className="font-semibold mt-2 ml-1 text-white"> Plant<span className="text-secondary">Keeper</span></h1>
           </Link>
         </div>
 
         <div className="navbar-center hidden lg:flex lg:gap-10">
           {/* Desktop Menu */}
-          <ul className="menu menu-horizontal px-1 flex flex- gap-5 text-lg">
+          <ul className="menu menu-horizontal px-1 flex flex- gap-5 text-lg text-white">
             {links}
           </ul>
         </div>

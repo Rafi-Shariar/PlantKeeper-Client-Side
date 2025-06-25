@@ -1,6 +1,7 @@
 import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { Link } from "react-router";
+import { MdTravelExplore } from "react-icons/md";
 const NewPlantCard = ({ plant }) => {
   const {
     _id,
@@ -60,7 +61,7 @@ const NewPlantCard = ({ plant }) => {
       </div>
 
       <div>
-        <Link to={`/details/${_id}`} className="w-full btn btn-primary mt-3">Learn More</Link>
+        <Link to={`/details/${_id}`} className="w-full btn btn-soft btn-primary mt-3"><MdTravelExplore />Learn More</Link>
       </div>
     </div>
   );

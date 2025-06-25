@@ -10,10 +10,10 @@ const SeasonalGuide = () => {
   return (
     <div>
       
-      <h1 className="text-2xl lg:text-4xl lg:mt-20 font-semibold text-green-600 mt-10">
+      <h1 className="text-2xl lg:text-4xl mt-16 font-semibold text-primary ">
         <MdOutlineTipsAndUpdates className="inline" /> Seasonal Plant Care Guide
       </h1>
-      <p className="font-light text-slate-500 lg:text-lg mt-5">
+      <p className="font-light text-slate-500 lg:text-lg mt-1">
         Help your plants thrive year-round with seasonal tips tailored for every
         climate shift.
       </p>
