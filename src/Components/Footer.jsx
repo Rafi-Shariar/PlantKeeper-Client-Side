@@ -13,7 +13,7 @@ const Footer = () => {
             <img src={logo} alt="" className='w-[10%]'/>
             <h2 className="text-3xl font-bold"> PlantKeeper</h2>
           </div>
-          <p>Your trusted companion for smart plant care and growth tracking.</p>
+          <p>Your trusted companion for smart plant care and growth tracking .</p>
         </div>
 
         {/* Contact Info */}
