@@ -8,7 +8,9 @@ const LoadingContainer = () => {
                 <LoadingSkeleton></LoadingSkeleton>
                  <LoadingSkeleton></LoadingSkeleton>
                 <LoadingSkeleton></LoadingSkeleton>
-                <LoadingSkeleton></LoadingSkeleton> 
+                <LoadingSkeleton></LoadingSkeleton>
+                <LoadingSkeleton></LoadingSkeleton>
+                <LoadingSkeleton></LoadingSkeleton>
      
 
             </div>

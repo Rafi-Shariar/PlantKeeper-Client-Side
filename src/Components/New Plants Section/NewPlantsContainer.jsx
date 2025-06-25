@@ -31,11 +31,11 @@ const NewPlantsContainer = () => {
   }, []);
 
   return (
-    <div className="bg-green-50 p-5 mt-10 rounded-3xl">
-      <h1 className="text-2xl lg:text-4xl  font-semibold text-green-600 ">
+    <div className="bg-green-50 p-5 lg:p-10 mt-10 rounded-3xl shadow-2xl">
+      <h1 className="text-2xl lg:text-4xl  font-semibold text-primary ">
         <GiCottonFlower className="inline" /> Recently Added Plants
       </h1>
-      <p className="font-light text-slate-500 lg:text-lg mt-5">
+      <p className="font-light text-slate-500 lg:text-lg mt-1">
         Discover the latest additions to your green collection — fresh, unique
         plants just added to help brighten your space.
       </p>
