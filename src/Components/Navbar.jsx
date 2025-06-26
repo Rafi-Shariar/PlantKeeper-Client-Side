@@ -44,6 +44,7 @@ const Navbar = () => {
       <NavLink to={`/`}>Home</NavLink>
       <NavLink to={`/allplants`}>All Plants</NavLink>
       <NavLink to={`/contact`}>Contact</NavLink>
+      <NavLink to={`/blogs`}>Blog</NavLink>
       {/* <NavLink to={`/addplant`}>Add Plant</NavLink>
       <NavLink to={`/myplants`}>My Plants</NavLink> */}
 
@@ -178,12 +179,12 @@ const Navbar = () => {
                     >
                       Login
                     </Link>
-                    <Link
+                    {/* <Link
                       to={`/register`}
                       className="btn bg-green-500 hover:bg-green-900 hover:text-white"
                     >
                       Register
-                    </Link>{" "}
+                    </Link>{" "} */}
                   </div>
                 </>
               )}

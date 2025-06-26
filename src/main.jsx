@@ -15,6 +15,7 @@ import MyPlantsPage from "./Pages/MyPlantsPage.jsx";
 import PageNotFound from "./Components/PageNotFound.jsx";
 import UpdatePage from "./Pages/UpdatePage.jsx";
 import PrivateRoute from "./Provider/PrivateRoute.jsx";
+import ContactPage from "./Pages/ContactaPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
         path:'/update/:id',
         element:<UpdatePage></UpdatePage>,
         loader: ({params})=>fetch(`https://a10-server-beryl.vercel.app/plants/${params.id}`)
+      },
+      {
+        path:'/contact',
+        element:<ContactPage></ContactPage>
       }
     ],
   },

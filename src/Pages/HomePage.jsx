@@ -3,6 +3,7 @@ import BannerContainer from '../Components/Banner/BannerContainer';
 import SeasonalGuide from '../Components/SeasonalGuide';
 import NewsLetter from '../Components/NewsLetter';
 import NewPlantsContainer from '../Components/New Plants Section/NewPlantsContainer';
+import BlogsContainer from '../Components/Blogs/BlogsContainer';
 
 
 const HomePage = () => {
@@ -11,6 +12,7 @@ const HomePage = () => {
             <BannerContainer></BannerContainer>
             <NewPlantsContainer></NewPlantsContainer>
             <SeasonalGuide></SeasonalGuide>
+            <BlogsContainer></BlogsContainer>
             <NewsLetter></NewsLetter>
         </div>
     );
