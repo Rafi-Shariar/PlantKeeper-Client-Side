@@ -3,6 +3,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { PiPassword } from "react-icons/pi";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
+import loginImg from '../../assets/loginImg.png';
 import Swal from "sweetalert2";
 const Login = () => {
   const { logInUser, GoogleLogIn } = use(AuthContext);
@@ -83,106 +84,94 @@ const Login = () => {
 
   }
   return (
-    <div>
-      <div className="hero bg-green-50 min-h-screen rounded-3xl mt-10">
-        <div className="hero-content flex-col lg:flex-row-reverse max-w-4xl mx-auto">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-transparent bg-clip-text">
-              Login now!
-            </h1>
-            <p className="py-6 text-slate-600">
-              Welcome back! Log in to access your personalized plant collection,
-              manage your wishlist, and explore new green additions tailored
-              just for you.
-            </p>
-          </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <div className="card-body">
-              <form className="fieldset" onSubmit={handleLogin}>
-                <label className="label">
-                  Email <HiOutlineMail />
-                </label>
-                <input
-                  type="email"
-                  className="input"
-                  placeholder="Email"
-                  name="email"
-                />
-                <label className="label">
-                  Password <PiPassword />
-                </label>
-                <input
-                  type="password"
-                  className="input validator"
-                  required
-                  placeholder="Password"
-                  minlength="6"
-                  pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                  name="password"
-                />
-                <p className="validator-hint hidden">
-                  Must be more than 6 characters, including
-                  <br />
-                  At least one number
-                  <br />
-                  At least one lowercase letter
-                  <br />
-                  At least one uppercase letter
-                </p>
-
-                <div>
-                  <p className="link link-hover">
-                    Don't have an account ?{" "}
-                    <Link
-                      to={`/register`}
-                      className="font-semibold text-green-700"
-                    >
-                      Register
-                    </Link>
-                  </p>
-                </div>
-                <button
-                  type="submit"
-                  className="btn  mt-4 bg-green-600 text-white hover:bg-green-900"
-                >
-                  Login
-                </button>
-              </form>
-              <button onClick={handleGoogleLogin} className="btn bg-white text-black border-[#e5e5e5]">
-                <svg
-                  aria-label="Google logo"
-                  width="16"
-                  height="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <g>
-                    <path d="m0 0H512V512H0" fill="#fff"></path>
-                    <path
-                      fill="#34a853"
-                      d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"
-                    ></path>
-                    <path
-                      fill="#4285f4"
-                      d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"
-                    ></path>
-                    <path
-                      fill="#fbbc02"
-                      d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"
-                    ></path>
-                    <path
-                      fill="#ea4335"
-                      d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"
-                    ></path>
-                  </g>
-                </svg>
-                Login with Google
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="min-h-screen bg-green-50 py-10 px-4">
+  <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center bg-white rounded-3xl shadow-xl overflow-hidden">
+    
+    {/* Image Section */}
+    <div className="w-full lg:w-1/2">
+      <img src={loginImg} alt="Login" className="w-full h-full object-cover" />
     </div>
+
+    {/* Form Section */}
+    <div className="w-full lg:w-1/2 p-8">
+      <h2 className="text-3xl font-bold text-green-700 text-center mb-6">Welcome Back!</h2>
+      <p className="text-center text-gray-500 mb-6">Please login to continue to your dashboard.</p>
+
+      <form className="space-y-4" onSubmit={handleLogin}>
+        {/* Email */}
+        <div>
+          <label className="label text-sm font-medium text-gray-700 flex items-center gap-1">
+            Email <HiOutlineMail />
+          </label>
+          <input
+            type="email"
+            name="email"
+            required
+            className="input input-bordered w-full"
+            placeholder="Enter your email"
+          />
+        </div>
+
+        {/* Password */}
+        <div>
+          <label className="label text-sm font-medium text-gray-700 flex items-center gap-1">
+            Password <PiPassword />
+          </label>
+          <input
+            type="password"
+            name="password"
+            required
+            minLength={6}
+            pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}"
+            className="input input-bordered w-full"
+            placeholder="Enter your password"
+          />
+        
+        </div>
+
+        {/* Register Link */}
+        <p className="text-sm mt-2">
+          Don't have an account?{" "}
+          <Link to="/register" className="text-green-700 font-semibold hover:underline">
+            Register
+          </Link>
+        </p>
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="btn w-full bg-green-600 text-white hover:bg-green-800 mt-4"
+        >
+          Login
+        </button>
+      </form>
+
+      {/* Divider */}
+      <div className="divider text-sm text-gray-500">or</div>
+
+      {/* Google Login */}
+      <button
+        onClick={handleGoogleLogin}
+        className="btn w-full bg-white border border-gray-300 hover:shadow-md"
+      >
+        <svg
+          aria-label="Google logo"
+          width="18"
+          height="18"
+          viewBox="0 0 512 512"
+          className="mr-2"
+        >
+          <path fill="#EA4335" d="M113 309l-18 65-64-2c-19-34-31-74-31-116s12-82 31-116l57 10 25 59c-5 13-7 27-7 43 0 15 2 30 7 43z" />
+          <path fill="#34A853" d="M508 218c2 11 4 23 4 34s-1 23-3 34c-15 69-68 126-139 145l-65-53c23-10 42-26 56-46 13-20 21-44 21-69s-8-49-21-69c-14-20-33-36-56-46l65-53c71 19 124 76 139 145z" />
+          <path fill="#FBBC05" d="M221 508c-63 0-119-21-162-57l64-51c25 17 56 28 91 28 36 0 70-13 95-34l65 53c-46 42-107 67-175 67z" />
+          <path fill="#4285F4" d="M221 4c67 0 128 25 174 67l-65 53c-25-21-59-34-95-34-35 0-66 11-91 28l-64-51c43-36 99-57 162-57z" />
+        </svg>
+        Login with Google
+      </button>
+    </div>
+  </div>
+</div>
+
   );
 };
 

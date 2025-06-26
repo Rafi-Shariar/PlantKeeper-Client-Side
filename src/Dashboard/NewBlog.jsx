@@ -8,7 +8,7 @@ const NewBlog = () => {
   const [loading, setLoading] = useState(true);
 
    useEffect(()=>{
-      fetch(`http://localhost:3000/users/${user?.email}`)
+      fetch(`https://a10-server-beryl.vercel.app/users/${user?.email}`)
       .then(res => res.json())
       .then( data => {
         setCurrentUser(data);
@@ -30,7 +30,7 @@ const NewBlog = () => {
       email: currentUser?.email || "",
     };
 
-    fetch("http://localhost:3000/addblog", {
+    fetch("https://a10-server-beryl.vercel.app/addblog", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),

@@ -6,9 +6,18 @@
   default: true;
   --color-primary: #116423;
   --color-secondary: #7cec26;
+
   --color-base-200:#f0b41a;
 }
 
+@plugin "daisyui/theme" {
+  name: "dark";
+  --color-primary: #116423;
+  --color-secondary:#7cec26;
+  --color-base-100: #afc4b1;
+  --color-base-200: #cacaca
+  --color-base-content: #f9fafb;
+}
 *{
     font-family: "Urbanist", sans-serif;
 }

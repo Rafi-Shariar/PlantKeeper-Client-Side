@@ -5,7 +5,7 @@ const BlogCards = ({ blog }) => {
   const {_id, Banner, Title, Blog, Date, WrittenBy } = blog;
 
   return (
-    <div className="bg-white shadow-md rounded-xl overflow-hidden mb-8 max-w-3xl mx-auto">
+    <div className="bg-white shadow-md rounded-xl overflow-hidden mb-8 max-w-3xl mx-auto  ">
       <img
         src={Banner}
         alt={Title}

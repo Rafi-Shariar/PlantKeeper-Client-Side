@@ -31,7 +31,7 @@ const NewPlantsContainer = () => {
   }, []);
 
   return (
-    <div className="bg-green-50 p-5 lg:p-10 mt-14 rounded-3xl shadow-2xl">
+    <div className="bg-green-50 p-5 lg:p-10 mt-14 rounded-3xl shadow-2xl ">
       <h1 className="text-2xl lg:text-4xl  font-semibold text-primary ">
         <GiCottonFlower className="inline" /> Recently Added Plants
       </h1>

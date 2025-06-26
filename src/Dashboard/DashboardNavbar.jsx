@@ -5,7 +5,7 @@ import logo from '../assets/logo.png';
 
 const DashboardNavbar = ({ toggleSidebar, user}) => {
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-20">
+    <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-20  ">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 text-green-700 font-bold text-xl md:text-2xl">

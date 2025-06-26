@@ -31,7 +31,7 @@ const DetailsPage = () => {
             <p className="text-center text-gray-500 mt-2 ">{plantData.description}</p>
             
             <div className='text-2xl font-semibold text-primary mt-10 mb-3'>Details About <span>{plantData?.plantname}</span></div>
-            <div className=" flex flex-col-reverse lg:flex-row items-center gap-10 bg-white shadow-md rounded-2xl p-8">
+            <div className=" flex flex-col-reverse lg:flex-row items-center gap-10 bg-white shadow-md rounded-2xl p-8  ">
 
                 {/* Details */}
                 <div className="flex-1 grid grid-cols-1 gap-4 text-sm sm:text-base">

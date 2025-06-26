@@ -26,7 +26,7 @@ const BlogDetails = () => {
         className="w-full h-64 md:h-96 object-cover rounded-xl shadow mb-10"
       />
 
-      <article className="text-lg leading-relaxed text-gray-800 whitespace-pre-line">
+      <article className="text-lg leading-relaxed text-gray-800 whitespace-pre-line ">
         {Blog}
       </article>
     </div>

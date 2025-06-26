@@ -37,7 +37,7 @@ const SeasonalGuide = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="font-semibold text-lg text-center text-green-600">
+            <h2 className="font-semibold text-lg text-center text-green-800">
              SPRING
             </h2>
             <p className="text-center text-slate-600">
@@ -56,7 +56,7 @@ const SeasonalGuide = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="font-semibold text-lg text-center text-green-600">
+            <h2 className="font-semibold text-lg text-center text-green-800">
              SUMMER
             </h2>
             <p className="text-center text-slate-600">
@@ -75,7 +75,7 @@ const SeasonalGuide = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="font-semibold text-lg text-center text-green-600">
+            <h2 className="font-semibold text-lg text-center text-green-800">
              AUTUMN
             </h2>
             <p className="text-center text-slate-600">
@@ -94,7 +94,7 @@ const SeasonalGuide = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="font-semibold text-lg text-center text-green-600">
+            <h2 className="font-semibold text-lg text-center text-green-800">
              WINTER
             </h2>
             <p className="text-center text-slate-600">

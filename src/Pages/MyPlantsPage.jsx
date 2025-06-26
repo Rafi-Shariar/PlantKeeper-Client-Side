@@ -25,10 +25,10 @@ const MyPlantsPage = () => {
     <div className="">
       {/* heading */}
       <div>
-        <h1 className="text-2xl lg:text-4xl font-semibold text-green-600 mt-10">
-          Your Plant Collection
+        <h1 className="text-2xl lg:text-4xl font-semibold text-green-600">
+          My Plant Collection
         </h1>
-        <p className="font-light text-slate-500 lg:text-lg mt-5">
+        <p className="font-light text-slate-500 lg:text-lg mt-1">
           View and manage all the plants you've added to your collection. Keep
           track of your favorites, monitor their care, and celebrate your
           growing green space.
@@ -46,7 +46,7 @@ const MyPlantsPage = () => {
         ) : myplants.length == 0 ? (
           <NoPlants></NoPlants>
         ) : (
-          <div className="grid grid-cols-1 gap-7 mt-10">
+          <div className="grid grid-cols-1 gap-7">
             <div className="overflow-x-auto">
               <table className="table">
                 {/* head */}

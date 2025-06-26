@@ -3,6 +3,7 @@ import { NavLink, Outlet, useParams } from "react-router";
 import DashboardNavbar from "./DashboardNavbar";
 import { FaTimes } from "react-icons/fa";
 import Footer from '../Components/Footer';
+import DashboardFooter from "./DashboardFooter";
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const {email} = useParams();
@@ -96,7 +97,7 @@ const Dashboard = () => {
 
 
   useEffect(()=>{
-    fetch(`http://localhost:3000/users/${email}`)
+    fetch(`https://a10-server-beryl.vercel.app/users/${email}`)
     .then(res => res.json())
     .then( data => {
       setUser(data);
@@ -116,7 +117,7 @@ const Dashboard = () => {
             fixed top-0 left-0 z-40 w-64 p-6 min-h-screen
             transform transition-transform duration-300 ease-in-out
             ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
-            lg:translate-x-0 lg:relative lg:block lg:z-auto bg-white
+            lg:translate-x-0 lg:relative lg:block lg:z-auto bg-white  
           `}
         >
           {/* Close button for mobile */}
@@ -141,6 +142,8 @@ const Dashboard = () => {
           <Outlet />
         </main>
       </div>
+
+      <DashboardFooter></DashboardFooter>
       
     </div>
   );

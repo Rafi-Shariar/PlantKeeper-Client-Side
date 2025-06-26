@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactPage = () => {
   return (
-    <div className="min-h-screen bg-green-50 py-16 px-6 md:px-10">
+    <div className="min-h-screen bg-green-50 rounded-2xl py-16 px-6 md:px-10">
       <div className="max-w-4xl mx-auto text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-green-700">
           Get in Touch 🌿

@@ -15,7 +15,7 @@ const PlantDisplayTable = () => {
     if (sortOrder) params.append("sort", sortOrder);
     if (categoryFilter) params.append("category", categoryFilter);
 
-    fetch(`http://localhost:3000/plantsorted?${params.toString()}`)
+    fetch(`https://a10-server-beryl.vercel.app/plantsorted?${params.toString()}`)
       .then((res) => res.json())
       .then((data) => {
         setPlantsData(data);
@@ -27,7 +27,7 @@ const PlantDisplayTable = () => {
   return (
     <div>
       {/* Filter and Sorting  */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-4 bg-white border border-green-200 p-4 rounded-xl shadow-lg mb-6 mt-10">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4 bg-white border border-green-200 p-4 rounded-xl shadow-lg mb-6 mt-10  ">
         {/* Sort */}
         <div className="flex items-center justify-center gap-2 w-full">
           <label

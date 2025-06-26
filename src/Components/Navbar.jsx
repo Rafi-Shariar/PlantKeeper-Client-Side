@@ -45,7 +45,6 @@ const Navbar = () => {
       <NavLink to={`/allplants`}>All Plants</NavLink>
       <NavLink to={`/contact`}>Contact</NavLink>
       <NavLink to={`/blogs`}>Blog</NavLink>
-      {/* <NavLink to={`/addplant`}>Add Plant</NavLink> */}
       {/* <NavLink to={`/addplant`}>Add Plant</NavLink>
       <NavLink to={`/myplants`}>My Plants</NavLink> */}
 

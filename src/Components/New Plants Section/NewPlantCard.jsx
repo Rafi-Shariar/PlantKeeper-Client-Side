@@ -20,7 +20,7 @@ const NewPlantCard = ({ plant }) => {
   });
 
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden p-3 border border-primary p-4">
+    <div className="bg- rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-primary p-4  ">
       {/* Upper Part */}
       <div className="flex gap-5">
         {/* Image Section */}
@@ -36,7 +36,7 @@ const NewPlantCard = ({ plant }) => {
         <div className="flex flex-col justify-center">
           <h2 className="text-2xl font-bold text-green-700">{plantname}</h2>
 
-          <div className="flex flex-col mt-3">
+          <div className="flex flex-col mt-3 dark:text-slate-500">
             <span className="">
               <strong className="font-semibold">Category:</strong> {category}
             </span>
