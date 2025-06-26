@@ -39,7 +39,7 @@ const DashboardHomePage = () => {
       ) : (
         <div>
           <div>
-            <div className="flex items-center gap-4 mb-10 rounded-xl p-5 shadow-md  bg-white dark:bg-gray-200">
+            <div className="flex flex-col md:flex-row md:items-center gap-4 mb-10 rounded-xl p-5 shadow-md  bg-white dark:bg-gray-200">
               <img
                 src={currentuser?.photourl}
                 alt={currentuser?.name}

@@ -21,7 +21,7 @@ const Footer = () => {
         </div>
 
         {/* 2. Company Links */}
-        <div className='md:col-span-2 flex flex-col items-center'>
+        <div className='md:col-span-2 flex flex-col md:items-center'>
           <h3 className="text-lg font-semibold mb-2">Company</h3>
           <ul className="space-y-1 text-sm flex flex-col">
             <Link to={'/'} className="hover:underline" href="#">Home</Link>

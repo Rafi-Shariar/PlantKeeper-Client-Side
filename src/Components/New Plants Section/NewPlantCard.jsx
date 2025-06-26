@@ -61,7 +61,7 @@ const NewPlantCard = ({ plant }) => {
       </div>
 
       <div>
-        <Link to={`/details/${_id}`} className="w-full btn btn-soft btn-primary mt-3"><MdTravelExplore />Learn More</Link>
+        <Link to={`/details/${_id}`} className="w-full btn btn-primary hover:btn-secondary mt-3"><MdTravelExplore />Learn More</Link>
       </div>
     </div>
   );
