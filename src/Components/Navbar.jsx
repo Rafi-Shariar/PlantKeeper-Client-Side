@@ -45,6 +45,7 @@ const Navbar = () => {
       <NavLink to={`/allplants`}>All Plants</NavLink>
       <NavLink to={`/contact`}>Contact</NavLink>
       <NavLink to={`/blogs`}>Blog</NavLink>
+      {/* <NavLink to={`/addplant`}>Add Plant</NavLink> */}
       {/* <NavLink to={`/addplant`}>Add Plant</NavLink>
       <NavLink to={`/myplants`}>My Plants</NavLink> */}
 
@@ -162,12 +163,15 @@ const Navbar = () => {
                       <img src={activeUser?.photourl} />
                     </div>
                   </div>
+                  <Link to={`/dashboard/${user.email}`} className="btn">Dashboard</Link>
                   <button
                     onClick={handleLogOut}
                     className="btn bg-green-500 hover:bg-green-900 hover:text-white hidden lg:inline"
                   >
                     Logout
                   </button>
+                  
+
                 </>
               ) : (
                 <>

@@ -90,7 +90,7 @@ const UpdatePage = () => {
               <label className="label">Image</label>
               <input
                 type="text"
-                className="w-full input"
+                className="w-full input border-green-800 bg-white"
                 placeholder="Provide An Image URL"
                 name="image"
                 required
@@ -101,7 +101,7 @@ const UpdatePage = () => {
               <label className="w-full label">Plant Name</label>
               <input
                 type="text"
-                className="w-full input"
+                className="w-full input border-green-800 bg-white"
                 placeholder="Plant Name"
                 name="plantname"
                 required
@@ -109,11 +109,11 @@ const UpdatePage = () => {
                 onChange={(e) => setPlantName(e.target.value)}
               />
 
-              <label className="w-full w-full label">Plant Category</label>
+              <label className="w-full label">Plant Category</label>
               <select
                 defaultValue=""
                 required
-                className="w-full select"
+                className="w-full select border-green-800 bg-white"
                 name="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
@@ -130,7 +130,7 @@ const UpdatePage = () => {
               <select
                 defaultValue=""
                 required
-                className="w-full select"
+                className="w-full select border-green-800 bg-white"
                 name="carelevel"
                 value={carelevel}
                 onChange={(e) => setCarelevel(e.target.value)}
@@ -144,7 +144,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 required
-                className="w-full input"
+                className="w-full input border-green-800 bg-white"
                 placeholder="Every 3 days ?"
                 name="waterfrequency"
                 value={waterfrequency}
@@ -158,7 +158,7 @@ const UpdatePage = () => {
               <input
                 type="date"
                 required
-                className="w-full input"
+                className="w-full input border-green-800 bg-white"
                 placeholder="Date"
                 name="lastwaterdate"
                 value={lastwaterdate}
@@ -169,7 +169,7 @@ const UpdatePage = () => {
               <input
                 type="date"
                 required
-                className="w-full input"
+                className="w-full input border-green-800 bg-white"
                 placeholder="Password"
                 name="nextwaterdate"
                 value={nextwaterdate}
@@ -180,7 +180,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 required
-                className="w-full input"
+                className="w-full input border-green-800 bg-white"
                 placeholder="Health Status"
                 name="healthstatus"
                 value={healthstatus}
@@ -191,7 +191,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 required
-                className="w-full input text-slate-400"
+                className="w-full input border-green-800 bg-white text-slate-400"
                 placeholder="Your Name"
                 name="name"
                 value={name}
@@ -201,7 +201,7 @@ const UpdatePage = () => {
               <input
                 type="email"
                 required
-                className="w-full input text-slate-400"
+                className="w-full input border-green-800 bg-white text-slate-400"
                 placeholder="Your Email"
                 name="email"
                 value={email}
@@ -214,7 +214,7 @@ const UpdatePage = () => {
               <label className="label">Description</label>
               <textarea
                 placeholder="Description about the plant..."
-                className="textarea w-full"
+                className="textarea w-full border-green-800 bg-white h-[200px]"
                 name="description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}

@@ -1,23 +1,25 @@
-import React from "react";
-import { MdOutlineHealthAndSafety, MdOutlineEdit } from "react-icons/md";
-import { FaVoteYea } from "react-icons/fa";
-import { IoIosWater } from "react-icons/io";
+import React, { use } from "react";
+import { MdOutlineEdit } from "react-icons/md";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
-import { FaHandHoldingWater } from "react-icons/fa";
+import { AuthContext } from "../Context/AuthContext";
+
 const MyPlantCard = ({ plant, setIsDeleted }) => {
   const {
     _id,
     image,
     plantname,
-    carelevel,
+    category,
     waterfrequency,
     lastwaterdate,
     nextwaterdate,
     healthstatus,
   } = plant;
+
+  const {user} = use(AuthContext);
+  
 
   const handleDelete = () => {
     Swal.fire({
@@ -40,7 +42,7 @@ const MyPlantCard = ({ plant, setIsDeleted }) => {
 
         Swal.fire({
           title: "Deleted!",
-          text: "Your file has been deleted.",
+          text: "Your plant has been deleted.",
           icon: "success",
         });
       }
@@ -48,79 +50,71 @@ const MyPlantCard = ({ plant, setIsDeleted }) => {
   };
 
   return (
-    <div className="shadow-lg rounded-2xl p-5 max-w-4xl mx-auto md:min-w-128">
-      <div className="grid lg:grid-cols-4 gap-5 items-center">
-        <div>
-          <img
-            src={image}
-            alt=""
-            className="w-40 h-30 lg:w-50 lg:h-55 max-w-sm rounded-xl shadow-lg object-cover"
-          />
-        </div>
+    <tr className="hover">
 
-        {/* Details */}
-        <div className="grid gap-1 lg:col-span-2">
-          <h1 className="text-lg lg:text-3xl font-semibold text-green-600">
-            {plantname}
-          </h1>
+     
 
-          <h1 className="text-xs lg:text-lg mt-3">
-            <MdOutlineHealthAndSafety className="inline mr-2 text-yellow-500" />
-            Health Status: <span className="font-light">{healthstatus}</span>
-          </h1>
-
-          <h1 className="text-xs lg:text-lg">
-            <FaVoteYea className="inline mr-2 text-orange-600" />
-            Care Level: <span className="font-light">{carelevel}</span>
-          </h1>
-
-          <h1 className="text-xs lg:text-lg">
-            <IoIosWater className="inline mr-2 text-blue-600 " />
-            Watering Frequency:{" "}
-            <span className="font-light">{waterfrequency}</span>
-          </h1>
-
-          <div className="mt-3 flex flex-col">
-            <h1 className="text-xs lg:text-lg badge bg-green-100 bg-green-100 text-green-800 dark:bg-green-600 dark:text-green-100">
-              Last Water Date:{" "}
-              <span className="font-light">{lastwaterdate}</span>
-            </h1>
-
-            <h1 className="text-xs lg:text-lg badge bg-green-100 mt-2 bg-green-100 text-green-800 dark:bg-green-600 dark:text-green-100">
-              Next Watering Date:{" "}
-              <span className="font-light">{nextwaterdate}</span>
-            </h1>
-
-
-       
+      {/* Plant Info */}
+      <td>
+        <div className="flex items-center gap-4">
+          <div className="avatar">
+            <div className="mask mask-squircle h-12 w-12">
+              <img src={image} alt={plantname} />
+            </div>
+          </div>
+          <div>
+            <div className="font-bold text-green-700">{plantname}</div>
+            <div className="text-sm opacity-50">{healthstatus.slice(0,50)}...</div>
           </div>
         </div>
+      </td>
 
-        {/* Buttons */}
-        <div className="grid grid-cols-3 lg:grid-cols-1 gap-3 justify-items-center">
+      {/* Category Info */}
+      <td>
+        <span className="text-xs text-gray-500">{waterfrequency}</span>
+      </td>
+
+      {/* Water Dates */}
+      <td>
+        <div className="text-sm">
+          <span className="font-semibold text-gray-600">Last:</span>{" "}
+          {lastwaterdate}
+        </div>
+        <div className="text-sm">
+          <span className="font-semibold text-gray-600">Next:</span>{" "}
+          {nextwaterdate}
+        </div>
+      </td>
+
+      {/* Actions */}
+      <th>
+        <div className="flex gap-2">
           <Link
             to={`/details/${_id}`}
-            className="btn btn-circle text-xl bg-green-600 text-white"
+            className="btn btn-ghost btn-xs bg-green-600 text-white"
+            title="View"
           >
             <FaExternalLinkAlt />
           </Link>
 
           <Link
-            to={`/update/${_id}`}
-            className="btn btn-circle text-xl text-white bg-blue-400"
+            to={`/dashboard/${user?.email}/update/${_id}`}
+            className="btn btn-ghost btn-xs bg-blue-500 text-white"
+            title="Edit"
           >
             <MdOutlineEdit />
           </Link>
 
           <button
             onClick={handleDelete}
-            className="btn btn-circle text-xl text-white bg-red-400"
+            className="btn btn-ghost btn-xs bg-red-500 text-white"
+            title="Delete"
           >
             <RiDeleteBin6Fill />
           </button>
         </div>
-      </div>
-    </div>
+      </th>
+    </tr>
   );
 };
 

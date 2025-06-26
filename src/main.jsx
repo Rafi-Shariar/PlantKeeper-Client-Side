@@ -19,6 +19,10 @@ import ContactPage from "./Pages/ContactaPage.jsx";
 import BlogsPage from "./Pages/BlogsPage.jsx";
 import BlogDetails from "./Components/Blogs/BlogDetails.jsx";
 import AboutUsPage from "./Pages/AboutUsPage.jsx";
+import Dashboard from "./Dashboard/Dashboard.jsx";
+import DashboardHomePage from "./Pages/DashboardPages/DashboardHomePage.jsx";
+import AllPlantsDashboard from "./Dashboard/AllPlantsDashboard.jsx";
+import NewBlog from "./Dashboard/NewBlog.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +30,6 @@ const router = createBrowserRouter([
     element: <MainLayout></MainLayout>,
     children: [
       { index: true, element: <HomePage></HomePage> },
-      { path: "/addplant", element: <PrivateRoute><AddNewPlant></AddNewPlant></PrivateRoute> },
       {
         path: "/details/:id",
         element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>,
@@ -42,15 +45,8 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
-      {
-        path:"/myplants",
-        element:<PrivateRoute><MyPlantsPage></MyPlantsPage></PrivateRoute>
-      },
-      {
-        path:'/update/:id',
-        element:<UpdatePage></UpdatePage>,
-        loader: ({params})=>fetch(`https://a10-server-beryl.vercel.app/plants/${params.id}`)
-      },
+     
+      
       {
         path:'/contact',
         element:<ContactPage></ContactPage>
@@ -73,7 +69,36 @@ const router = createBrowserRouter([
       }
     ],
   },
-  
+  {
+    path:'/dashboard/:email',
+    element:<Dashboard></Dashboard>,
+    children:[
+      {index:true, element:<DashboardHomePage></DashboardHomePage>},
+      {path:'myplants', element:<PrivateRoute><MyPlantsPage></MyPlantsPage></PrivateRoute>},
+      {path:'addplant', element:<PrivateRoute><AddNewPlant></AddNewPlant></PrivateRoute>},
+      {
+        path:'update/:id',
+        element:<UpdatePage></UpdatePage>,
+        loader: ({params})=>fetch(`https://a10-server-beryl.vercel.app/plants/${params.id}`)
+      },
+      {
+        path:'Allplants',
+        element:<AllPlantsDashboard></AllPlantsDashboard>
+      },
+      {
+        path:'contact',
+        element:<ContactPage></ContactPage>
+      },
+      {
+        path:'submitBlog',
+        element:<NewBlog></NewBlog>
+      }
+      
+      
+
+    ]
+
+  },
   {
     path: "/*",
     element:<PageNotFound></PageNotFound>

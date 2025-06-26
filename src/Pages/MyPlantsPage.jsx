@@ -19,7 +19,7 @@ const MyPlantsPage = () => {
         setMyplants(filteredPlants);
         setIsDeleted(false);
       });
-  }, [user, loading,isDeleted]);
+  }, [user, loading, isDeleted]);
 
   return (
     <div className="">
@@ -42,14 +42,36 @@ const MyPlantsPage = () => {
       {/* My Plants */}
       <div>
         {loading ? (
-         <LoadingContainer></LoadingContainer>
+          <LoadingContainer></LoadingContainer>
         ) : myplants.length == 0 ? (
           <NoPlants></NoPlants>
         ) : (
           <div className="grid grid-cols-1 gap-7 mt-10">
-            {myplants.map((plant) => (
-              <MyPlantCard key={plant._id} plant={plant} setIsDeleted={setIsDeleted}/>
+            <div className="overflow-x-auto">
+              <table className="table">
+                {/* head */}
+                <thead>
+                  <tr className="text-green-700">
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Watering</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* row 1 */}
+                  {myplants.map((plant) => (
+              <MyPlantCard
+                key={plant._id}
+                plant={plant}
+                setIsDeleted={setIsDeleted}
+              />
             ))}
+                  
+                </tbody>
+              </table>
+            </div>
+            
           </div>
         )}
       </div>
