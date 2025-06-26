@@ -63,9 +63,9 @@ const Navbar = () => {
             {" "}
             <Link
               to={`/login`}
-              className="btn bg-green-500 hover:bg-green-900 hover:text-white"
+              className="btn  hover:bg-green-900 hover:text-white"
             >
-              Login
+              Logina
             </Link>
             <Link
               to={`/register`}
@@ -175,7 +175,7 @@ const Navbar = () => {
                     {" "}
                     <Link
                       to={`/login`}
-                      className="btn bg-green-500 hover:bg-green-900 hover:text-white"
+                      className="btn bg-secondary hover:bg-base-200 hover:text-white"
                     >
                       Login
                     </Link>

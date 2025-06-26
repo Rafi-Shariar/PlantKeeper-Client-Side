@@ -63,7 +63,7 @@ const router = createBrowserRouter([
          path: "/blogs/:id",
         element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/blogs/${params.id}`),
+          fetch(`https://a10-server-beryl.vercel.app/blogs/${params.id}`),
       
       }
     ],

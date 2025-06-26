@@ -8,7 +8,7 @@ const BlogsPage = () => {
 
      useEffect(()=>{
         
-        fetch('http://localhost:3000/blogs')
+        fetch('https://a10-server-beryl.vercel.app/blogs')
         .then(res => res.json())
         .then((data)=>{
             setBlogs(data);

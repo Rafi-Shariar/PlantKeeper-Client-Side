@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { MdOutlineTipsAndUpdates } from "react-icons/md";
+import { MdOutlineLibraryBooks } from "react-icons/md";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import BlogCards from './BlogCards';
+import { Link } from 'react-router';
 const BlogsContainer = () => {
 
     const [blogs, setBlogs] = useState([]);      
@@ -8,7 +10,7 @@ const BlogsContainer = () => {
 
   useEffect(()=>{
     
-    fetch('http://localhost:3000/blogs')
+    fetch('https://a10-server-beryl.vercel.app/blogs')
     .then(res => res.json())
     .then((data)=>{
         const updatedData = data.slice(0,2);
@@ -25,7 +27,7 @@ const BlogsContainer = () => {
             {/* title */}
             <div>
                   <h1 className="text-2xl lg:text-4xl mt-16 font-semibold text-primary ">
-                        <MdOutlineTipsAndUpdates className="inline" /> Explore Blogs
+                        <MdOutlineLibraryBooks className="inline" /> Explore Blogs
                       </h1>
                       <p className="font-light text-slate-500 lg:text-lg mt-1">
                          Discover expert tips, plant care routines, and seasonal advice to keep your green companions happy and healthy.
@@ -49,6 +51,12 @@ const BlogsContainer = () => {
                         </>
                 }
 
+            </div>
+
+            <div>
+               <div className="divider">
+                <Link to={'/blogs'} className='btn btn-primary hover:bg-secondary hover:text-primary rounded-3xl'><FaExternalLinkAlt />Explore More Blogs</Link>
+               </div>
             </div>
             
         </div>
