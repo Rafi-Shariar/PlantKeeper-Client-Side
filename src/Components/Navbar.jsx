@@ -3,7 +3,7 @@ import { PiPlantBold } from "react-icons/pi";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { Tooltip } from "react-tooltip";
-import logo from '../assets/logo.png';
+import logo from "../assets/logo.png";
 const Navbar = () => {
   const { user, logOutUser, loading } = use(AuthContext);
   const [activeUser, setActiveUser] = useState();
@@ -41,12 +41,18 @@ const Navbar = () => {
 
   const links = (
     <>
+       <div className="md:hidden">
+       <Link to={"/"} className="flex text-xl md:text-2xl">
+        <img src={logo} className="w-10 h-10 object-contain " />
+        <h1 className="font-semibold mt-2 ml-1 text-primary">
+          Plant<span className="text-secondary">Keeper</span>
+        </h1>
+      </Link>
+     </div>
       <NavLink to={`/`}>Home</NavLink>
       <NavLink to={`/allplants`}>All Plants</NavLink>
       <NavLink to={`/contact`}>Contact</NavLink>
       <NavLink to={`/blogs`}>Blog</NavLink>
-      {/* <NavLink to={`/addplant`}>Add Plant</NavLink>
-      <NavLink to={`/myplants`}>My Plants</NavLink> */}
 
       <div className="mt-2 lg:hidden">
         {user ? (
@@ -63,9 +69,9 @@ const Navbar = () => {
             {" "}
             <Link
               to={`/login`}
-              className="btn  hover:bg-green-900 hover:text-white"
+              className="btn  hover:bg-green-900 hover:text-white mr-3"
             >
-              Logina
+              Login
             </Link>
             <Link
               to={`/register`}
@@ -76,6 +82,8 @@ const Navbar = () => {
           </>
         )}
       </div>
+
+  
     </>
   );
   return (
@@ -108,9 +116,17 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link to={'/'} className="text-xl md:text-2xl flex items-center">
-            <img src={logo} className="w-10 h-10 object-contain hidden md:inline" />
-            <h1 className="font-semibold mt-2 ml-1 text-white"> Plant<span className="text-secondary">Keeper</span></h1>
+          <Link
+            to={"/"}
+            className="hidden md:flex text-xl md:text-2xl items-center"
+          >
+            <img
+              src={logo}
+              className="w-10 h-10 object-contain hidden md:inline"
+            />
+            <h1 className="font-semibold mt-2 ml-1 text-white">
+              Plant<span className="text-secondary">Keeper</span>
+            </h1>
           </Link>
         </div>
 
@@ -123,7 +139,7 @@ const Navbar = () => {
 
         <div className="navbar-end flex gap-3">
           {/* DarkMode */}
-          <label className="swap swap-rotate">
+          <label className=" swap swap-rotate">
             {/* this hidden checkbox controls the state */}
             <input type="checkbox" onChange={handleToggle} />
 
@@ -162,15 +178,15 @@ const Navbar = () => {
                       <img src={activeUser?.photourl} />
                     </div>
                   </div>
-                  <Link to={`/dashboard/${user.email}`} className="btn">Dashboard</Link>
+                  <Link to={`/dashboard/${user.email}`} className="btn">
+                    Dashboard
+                  </Link>
                   <button
                     onClick={handleLogOut}
                     className="btn bg-green-500 hover:bg-green-900 hover:text-white hidden lg:inline"
                   >
                     Logout
                   </button>
-                  
-
                 </>
               ) : (
                 <>
@@ -182,12 +198,6 @@ const Navbar = () => {
                     >
                       Login
                     </Link>
-                    {/* <Link
-                      to={`/register`}
-                      className="btn bg-green-500 hover:bg-green-900 hover:text-white"
-                    >
-                      Register
-                    </Link>{" "} */}
                   </div>
                 </>
               )}
