@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
-import TableRow from "./TableRow";
-
+import LoadingContainer from "./Loading/LoadingContainer";
+import NewPlantCard from "./New Plants Section/NewPlantCard";
 const PlantDisplayTable = () => {
   const [plantsData, setPlantsData] = useState();
   const [loading, setLoading] = useState(true);
@@ -16,32 +16,25 @@ const PlantDisplayTable = () => {
 
   return (
     <div>
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th></th>
-              <th>Plant Name</th>
-              <th>Category</th>
-              <th>Next Watering Date</th>
-              <th>Explore</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* row 1 */}
-            {loading ? (
-              <tr>
-                <td colSpan="5" className="text-center py-5">
-                  <span className="loading loading-spinner loading-4xl"></span>
-                </td>
-              </tr>
-            ) : (
-              plantsData.map((plant) => <TableRow key={plant._id} plant={plant}></TableRow>)
-            )}
-          </tbody>
-        </table>
-      </div>
+      {
+        loading? (<>
+
+        <div>
+          <LoadingContainer></LoadingContainer>
+        </div>
+        </>) : (
+          <div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+           
+              {plantsData.map((plant) => (
+                <NewPlantCard key={plant._id} plant={plant} />
+              ))}
+           
+          </div>
+          </div>
+        )
+      }
     </div>
   );
 };
