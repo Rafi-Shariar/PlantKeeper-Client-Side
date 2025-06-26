@@ -106,7 +106,7 @@ const DashboardHomePage = () => {
                 <div className="bg-gradient-to-br from-purple-100 via-purple-300 to-purple-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition duration-300 w-full flex justify-between items-center">
                  <div>
                    <p className="text-sm uppercase text-green-900 font-semibold mb-2">
-                    Total Plants
+                    Total Blogs
                   </p>
                   <div className="flex items-center justify-between">
                     <h2 className="text-4xl font-bold text-green-900">
@@ -127,7 +127,7 @@ const DashboardHomePage = () => {
                 <div className="bg-gradient-to-br from-yellow-100 via-yellow-300 to-yellow-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition duration-300 w-full flex justify-between items-center">
                  <div>
                    <p className="text-sm uppercase text-green-900 font-semibold mb-2">
-                    Total Plants
+                    My Blogs
                   </p>
                   <div className="flex items-center justify-between">
                     <h2 className="text-4xl font-bold text-green-900">
