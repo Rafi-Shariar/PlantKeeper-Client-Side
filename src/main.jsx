@@ -16,6 +16,8 @@ import PageNotFound from "./Components/PageNotFound.jsx";
 import UpdatePage from "./Pages/UpdatePage.jsx";
 import PrivateRoute from "./Provider/PrivateRoute.jsx";
 import ContactPage from "./Pages/ContactaPage.jsx";
+import BlogsPage from "./Pages/BlogsPage.jsx";
+import BlogDetails from "./Components/Blogs/BlogDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +53,18 @@ const router = createBrowserRouter([
       {
         path:'/contact',
         element:<ContactPage></ContactPage>
+      },
+      {
+        path:'/blogs',
+        element:<BlogsPage></BlogsPage>,
+
+      },
+      {
+         path: "/blogs/:id",
+        element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/blogs/${params.id}`),
+      
       }
     ],
   },

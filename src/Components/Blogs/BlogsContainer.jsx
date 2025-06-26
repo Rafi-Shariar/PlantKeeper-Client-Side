@@ -11,7 +11,8 @@ const BlogsContainer = () => {
     fetch('http://localhost:3000/blogs')
     .then(res => res.json())
     .then((data)=>{
-        setBlogs(data);
+        const updatedData = data.slice(0,2);
+        setBlogs(updatedData);
         setLoading(false);
     })
 
