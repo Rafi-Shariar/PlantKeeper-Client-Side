@@ -3,7 +3,7 @@ import { PiPlantBold } from "react-icons/pi";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { Tooltip } from "react-tooltip";
-
+import logo from '../assets/logo.png';
 const Navbar = () => {
   const { user, logOutUser, loading } = use(AuthContext);
   const [activeUser, setActiveUser] = useState();
@@ -109,7 +109,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to={'/'} className="text-xl md:text-2xl flex items-center">
-            <PiPlantBold className="text-secondary text-4xl hidden md:inline" />
+            <img src={logo} className="w-10 h-10 object-contain hidden md:inline" />
             <h1 className="font-semibold mt-2 ml-1 text-white"> Plant<span className="text-secondary">Keeper</span></h1>
           </Link>
         </div>

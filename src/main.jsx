@@ -18,6 +18,7 @@ import PrivateRoute from "./Provider/PrivateRoute.jsx";
 import ContactPage from "./Pages/ContactaPage.jsx";
 import BlogsPage from "./Pages/BlogsPage.jsx";
 import BlogDetails from "./Components/Blogs/BlogDetails.jsx";
+import AboutUsPage from "./Pages/AboutUsPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://a10-server-beryl.vercel.app/blogs/${params.id}`),
       
+      },
+      {
+        path:'/aboutus',
+        element:<AboutUsPage></AboutUsPage>
       }
     ],
   },
